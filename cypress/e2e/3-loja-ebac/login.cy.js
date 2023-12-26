@@ -1,5 +1,5 @@
 ///<reference types="cypress"/>
-const perfil = require('../../fixtures/perfil.json')
+const perfil = require('../../fixtures/perfil.json')///chamando o arquivo de dados da pasta fixture 
 
 describe('Funcionalidade: login',() => {
 
@@ -18,7 +18,7 @@ describe('Funcionalidade: login',() => {
         cy.get('.woocommerce-MyAccount-content > :nth-child(2)').should('contain' , 'Olá, bruno.teste (não é bruno.teste? Sair)')
     })
 
-    it('Deve fazer login com sucesso - Usando arquivo de dados', () => {
+    it('Deve fazer login com sucesso - Usando arquivo de dados', () => { ///arqivo de dados criado na pasta fixture
         cy.get('#username').type(perfil.usuario)
         cy.get('#password').type(perfil.senha)
         cy.get('.woocommerce-form > .button').click()
@@ -26,7 +26,7 @@ describe('Funcionalidade: login',() => {
         
     });
 
-    it.only('Deve fazer login com sucesso - Usando fixture', () => {
+    it('Deve fazer login com sucesso - Usando fixture', () => {
         cy.fixture('perfil').then(dados => {
             cy.get('#username').type(dados.usuario)
             cy.get('#password').type(dados.senha, {log: false}) /// log: false esconde a senha no teste
